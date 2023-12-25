@@ -2,7 +2,7 @@ import {
   BaseFilter,
   Item,
   SourceOptions,
-} from "https://deno.land/x/ddc_vim@v4.0.4/types.ts";
+} from "https://deno.land/x/ddc_vim@v4.3.1/types.ts";
 
 type Params = Record<string, never>;
 
