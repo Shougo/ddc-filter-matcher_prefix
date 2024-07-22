@@ -8,9 +8,9 @@ type Params = Record<string, never>;
 
 export class Filter extends BaseFilter<Params> {
   override filter(args: {
-    sourceOptions: SourceOptions,
-    completeStr: string,
-    items: Item[],
+    sourceOptions: SourceOptions;
+    completeStr: string;
+    items: Item[];
   }): Promise<Item[]> {
     const prefix = args.completeStr.substring(0, 1);
     // NOTE: source may return non word prefixed items
@@ -19,5 +19,7 @@ export class Filter extends BaseFilter<Params> {
     ));
   }
 
-  override params(): Params { return {}; }
+  override params(): Params {
+    return {};
+  }
 }

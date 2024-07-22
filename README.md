@@ -4,18 +4,15 @@ Prefix matcher for ddc.vim
 
 It removes items does not match input prefix.
 
-
 ## Required
 
 ### denops.vim
 
 https://github.com/vim-denops/denops.vim
 
-
 ### ddc.vim
 
 https://github.com/Shougo/ddc.vim
-
 
 ## Configuration
 
