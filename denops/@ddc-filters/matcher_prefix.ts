@@ -1,18 +1,19 @@
-import {
-  BaseFilter,
-  Item,
-  SourceOptions,
-} from "https://deno.land/x/ddc_vim@v5.0.1/types.ts";
+import { BaseFilter, Item } from "https://deno.land/x/ddc_vim@v5.0.1/types.ts";
 
-type Params = Record<string, never>;
+type Params = {
+  prefixLength: number;
+};
 
 export class Filter extends BaseFilter<Params> {
   override filter(args: {
-    sourceOptions: SourceOptions;
+    filterParams: Params;
     completeStr: string;
     items: Item[];
   }): Promise<Item[]> {
-    const prefix = args.completeStr.substring(0, 1);
+    const prefix = args.completeStr.substring(
+      0,
+      args.filterParams.prefixLength,
+    );
     // NOTE: source may return non word prefixed items
     return Promise.resolve(args.items.filter(
       (item) => /^\W/.test(item.word) || item.word.startsWith(prefix),
@@ -20,6 +21,8 @@ export class Filter extends BaseFilter<Params> {
   }
 
   override params(): Params {
-    return {};
+    return {
+      prefixLength: 1,
+    };
   }
 }
