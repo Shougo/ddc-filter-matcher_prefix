@@ -1,4 +1,5 @@
-import { BaseFilter, type Item } from "jsr:@shougo/ddc-vim@6.0.0/types";
+import { type Item } from "jsr:@shougo/ddc-vim@~7.0.0/types";
+import { BaseFilter } from "jsr:@shougo/ddc-vim@~7.0.0/filter";
 
 type Params = {
   prefixLength: number;
